@@ -1,0 +1,18 @@
+/*1366x768*/
+div.ytp-chrome-bottom {
+    opacity: 1 !important;
+ }
+/*1366x768 resolution show all video 390px*/
+  .player-height { 
+    height: 390px !important;
+  }
+  /*530px with YTCenter dev >V 531 on*/
+  .watch-wide .player-height {
+    height: 510px !important;
+  }
+  /*-3% with YTCenter dev >V 531 on*/
+ .video-stream{
+    margin-top: 0% !important;
+   
+ }
+  /**/

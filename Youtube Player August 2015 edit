@@ -1,6 +1,6 @@
 /*V0.00000X*/
 @-moz-document domain("youtube.com") { 
-  div.ytp-chrome-bottom {
+    div.ytp-chrome-bottom {
     display: block !important;
    width: 100% !important;
     left: 0% !important;
@@ -25,22 +25,61 @@
     margin-top: !important
   }*/
   /*Increase Video Stream within Player*/
-  /*.video-stream{
-    padding: !important;
-    margin-top: -5% !important;
-    tranform: !important;
-    height: 360px !important;
-    width: 640px !important;
-  }*/
+  .video-stream{
+    /*padding: !important;*/
+    margin-top: -3% !important;
+   /* tranform: !important;*/
+  }
   /*Increase full player size*/
   /*.html5-video-player{
    width: 100% !important;
     height: 117% !important;
   }*/
-  .ytp-autohide .ytp-chrome-top, .ytp-autohide:not(.ytp-watch-controls) .ytp-chrome-bottom, .ytp-chrome-top[aria-hidden="true"], .ytp-chrome-bottom[aria-hidden="true"] {
+  /*.ytp-autohide .ytp-chrome-top, .ytp-autohide:not(.ytp-watch-controls) .ytp-chrome-bottom, .ytp-chrome-top[aria-hidden="true"], .ytp-chrome-bottom[aria-hidden="true"] {
    
   }
   .ytp-gradient-bottom {
     height: 0px
+  }*/
+
+
+
+
+  /*Reddit User TheCoryKid suggested*/
+ /*Auto HIde off*/
+   .ytp-chrome-bottom {
+    opacity: 1 !important;
   }
+  /*1366x768 resolution show all video*/
+  .player-height { 
+    height: 390px !important;
+  }
+  .watch-wide .player-height {
+    height: 530px !important;
+  }
+ .video-stream{
+    margin-top: -3% !important;
+  }
+  /* progress bar always shown resolution??*/
+  /*.ytp-chrome-bottom {
+    opacity: 1 !important;
+  }
+  .player-height {
+    height: 483px !important;
+  }
+  .watch-wide .player-height {
+    height: 723px !important;
+  }
+  .ytp-chrome-bottom {
+    bottom: -37px !important;
+  }
+  #player-api:hover .ytp-chrome-bottom {
+    bottom: 0 !important;
+  }*/
+  
+  
 }
+
+
+
+

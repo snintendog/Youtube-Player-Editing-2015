@@ -21,6 +21,10 @@
     Display: block !important;
     /*position: absolute;*/
   }
+  /*Change the Watchlater button mostly for the Userscript*/
+  .ytp-watch-later-button.ytp-button{
+    padding: 2px !important
+  }
   /*.html5-video-container{
     margin-top: !important
   }*/

@@ -15,4 +15,14 @@ div.ytp-chrome-bottom {
     margin-top: 0% !important;
    
  }
-  /**/
+  /*Tested on firefox 36/39 monitor 1366x768 1600x900 1920x1080 seems universal needs more testing and confirmation*/
+  /*start*/
+  .watch-stage-mode #movie_player { height: calc(100% + 30px)!important; }
+  :not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }
+  #watch7-content {transform: translateY(30px); }
+  body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); } 
+  body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }
+  .ytp-big-mode video { height: calc(100% + 33px)!important; }
+  .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }
+  .html5-video-container { height: 95%!important; }
+  /*End/*

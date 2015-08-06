@@ -33,6 +33,9 @@
   .watch-wide .player-height {
     height: 510px !important;
   }
+    .html5-video-content{
+    top: 0px !important;
+  }
   /*-3% with YTCenter dev >V 531 on*/
  .video-stream{
     margin-top: 0% !important;

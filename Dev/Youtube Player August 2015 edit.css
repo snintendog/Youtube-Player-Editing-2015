@@ -2,10 +2,10 @@
 @-moz-document domain("youtube.com") { 
     div.ytp-chrome-bottom {
     display: block !important;
-   width: 100% !important;
+    width: 100% !important;
     left: 0% !important;
     height: 30px !important;
-    background: black !important;
+    background: black none repeat scroll 0% 0% !important;
     bottom: -2px !important;
     /*position: absolute;*/
    }
@@ -21,31 +21,48 @@
     Display: block !important;
     /*position: absolute;*/
   }
-  /*Change the Watchlater button mostly for the Userscript*/
+    .ytp-gradient-bottom {
+    height: 0px !important;
+  }
+  /*New*/
   .ytp-watch-later-button.ytp-button{
     padding: 2px !important
-  }
+  }/*cleans up the watch later button to match the rest of the buttons sizes*/
+  .ytp-subtitles-player-content { 
+    bottom: 40px!important; 
+  } /*subtitles fix no longer bounces or hides on mouse hover*/
+  .watch-stage-mode #movie_player { height: calc(100% + 30px)!important; }/*video standard size*/
+  :not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }/*video wide size*/
+  #watch7-content {transform: translateY(30px); }/*title description ect placement standard size*/
+  body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); } /*related vids wide size*/
+  body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }/*title description ect placement wide size*/
+  .ytp-big-mode video { height: calc(100% + 33px)!important; }/*full screen height*/
+  .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }/*removes black background when in wide size*/
+  .html5-video-container { height: 95%!important; }/*for some reason only affects full screen and fixes it*/
+  /*end new*/
   /*.html5-video-container{
     margin-top: !important
   }*/
   /*Increase Video Stream within Player*/
-  .video-stream{
-    /*padding: !important;*/
+  /*.video-stream{
+    padding: !important;
     margin-top: -3% !important;
-   /* tranform: !important;*/
-  }
+    tranform: !important;
+  }*/
   /*Increase full player size*/
   /*.html5-video-player{
    width: 100% !important;
     height: 117% !important;
   }*/
+ /* html5-video-content{
+    height: -10.5
+  }*/
   /*.ytp-autohide .ytp-chrome-top, .ytp-autohide:not(.ytp-watch-controls) .ytp-chrome-bottom, .ytp-chrome-top[aria-hidden="true"], .ytp-chrome-bottom[aria-hidden="true"] {
    
-  }
-  .ytp-gradient-bottom {
-    height: 0px
   }*/
-
+/*.ytp-scrubber-button{
+  display: block !important;
+  }*/
 
 
 
@@ -54,15 +71,31 @@
    .ytp-chrome-bottom {
     opacity: 1 !important;
   }
-  /*1366x768 resolution show all video*/
-  .player-height { 
+  /*.ytp-autohide{
+    
+  }*/
+  /*.ytp-watch-controls{
+    opacity: 1 !important;
+  }*/
+  /*1366x768 resolution show all video 390px*/
+  /*.player-height { 
     height: 390px !important;
+    resize: vertical !important;
+    overflow: auto !important;
+  }*/
+  /*530px with YTCenter dev >V 531 on*/
+ /* .watch-wide .player-height {
+    height: 510px !important;
+    resize: vertical !important;
+    overflow: auto !important;
+  }*/
+  /*-3px With YTC*/
+  .html5-video-content{
+    top: 0px !important;
   }
-  .watch-wide .player-height {
-    height: 530px !important;
-  }
+  /*-3% with YTCenter dev >V 531 on*/
  .video-stream{
-    margin-top: -3% !important;
+    margin-top: 0% !important;
   }
   /* progress bar always shown resolution??*/
   /*.ytp-chrome-bottom {
@@ -76,6 +109,9 @@
   }
   .ytp-chrome-bottom {
     bottom: -37px !important;
+  }
+  .ytp-big-mode{
+  
   }
   #player-api:hover .ytp-chrome-bottom {
     bottom: 0 !important;

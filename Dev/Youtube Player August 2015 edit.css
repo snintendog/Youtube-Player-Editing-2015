@@ -40,6 +40,8 @@
   .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }/*removes black background when in wide size*/
   .html5-video-container { height: 95%!important; }/*for some reason only affects full screen and fixes it*/
     .ytp-button.ytp-cards-button { top: 0% !important;} /*fixes the i Card opener button for the iv tray*/
+    .watch-wide .watch-playlist{
+  transform: translateY(83%) !important; margin-bottom: 30px;}/*Fixes wide+playlist/mix*/
   /*end new*/
   /*.html5-video-container{
     margin-top: !important

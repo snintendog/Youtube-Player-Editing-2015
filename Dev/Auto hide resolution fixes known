@@ -15,7 +15,7 @@ div.ytp-chrome-bottom {
     margin-top: 0% !important;
    
  }
-  /*Tested on firefox 36/39 monitor 1366x768 1600x900 1920x1080 seems universal needs more testing and confirmation*/
+  /*Tested on firefox 36/39 monitor 1366x768 1600x900 1920x1080 Chrome monitor 1366x768 seems universal needs more testing and confirmation*/
   /*start*/
   .watch-stage-mode #movie_player { height: calc(100% + 30px)!important; }
   :not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }

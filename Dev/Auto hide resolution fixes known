@@ -25,4 +25,5 @@ div.ytp-chrome-bottom {
   .ytp-big-mode video { height: calc(100% + 33px)!important; }
   .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }
   .html5-video-container { height: 95%!important; }
+  .ytp-button.ytp-cards-button { top: 0% !important;}
   /*End/*

@@ -1,4 +1,4 @@
-/*V0.000002*/
+/*V0.000003*/
 @-moz-document domain("youtube.com") { 
   div.ytp-chrome-bottom {
     display: block !important;
@@ -24,5 +24,11 @@
   .ytp-gradient-bottom {
     height: 0px
   }
+    .ytp-watch-later-button.ytp-button{
+    padding: 2px !important
+  } /*cleans up the watch later restore button to match the rest of the buttons sizes*/
+  .ytp-subtitles-player-content { 
+    bottom: 40px!important; 
+  } /*subtitles fix no longer bounces or hides on mouse hover*/
   /*[[Auto-hide]]*/
 }

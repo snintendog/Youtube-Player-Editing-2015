@@ -56,12 +56,13 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 	
 		///*Fullscreen Fix*/
 		".ytp-big-mode video { height: calc(100% + 33px)!important; }",
-		".html5-video-container { height: 91%!important; }",
+		".ytp-fullscreen .html5-video-container { height: 91%!important; }",
     		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
 
 		///*YTC Compatibility Fixes*/
 		".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed
 	//	".video-stream{ margin-top: -2% !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
+	//	" .ytp-fullscreen .html5-video-container { margin-top: 2% !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
 	].join("\n");
     document.head.appendChild(css);
 })();

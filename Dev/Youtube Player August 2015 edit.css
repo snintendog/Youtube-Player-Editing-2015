@@ -30,7 +30,7 @@
   /*Fullscreen settings*/
   .ytp-big-mode video { height: calc(100% + 33px)!important; padding-bottom: 33px;}
   .ytp-fullscreen .html5-video-container { height: 91%!important; }
-
+  .ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }
   
   /*YTC fixes*/
     /*-3px With YTC* fixed/

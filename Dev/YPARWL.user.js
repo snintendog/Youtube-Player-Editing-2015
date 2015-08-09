@@ -8,11 +8,13 @@
 // @grant       none
 // ==/UserScript==
 
+
+
 (function() {
 	//mouse over the controls to update them (this seems to also work with 2000ms instead of 1000ms)
 	var evObj = document.createEvent('Events');
 	evObj.initEvent("mousemove", true, false);
-	var moviePlayer = document.getElementById("movie_player");
+	var moviePlayer = document.querySelector(".html5-video-player");
     setInterval(function() { moviePlayer.dispatchEvent(evObj); }, 1000);
     
 //Watch Later Restore	
@@ -46,7 +48,8 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 		".ytp-progress-bar-container { background: black !important;display: block !important;bottom: 27px !important; }",
 		".ytp-gradient-bottom {height: 0px !important;}",
 		".ytp-watch-later-button.ytp-button{ padding: 2px !important}", //cleans up the watch later restore button to match the rest of the buttons sizes
-
+		".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
+			
 		///*Theater Mode Fix*/
 		".watch-wide .watch-playlist{ transform: translateY(89%)!important; margin-bottom: 30px; }", //Fixes wide+playlist/mix
 		".watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }",
@@ -62,7 +65,11 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 		///*YTC Compatibility Fixes*/
 		".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed
 	//	".video-stream{ margin-top: -2% !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
-	//	" .ytp-fullscreen .html5-video-container { margin-top: 2% !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
+	//	".ytp-fullscreen .html5-video-container { margin-top: 2% !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
+		
+		///*Embedded Fixes*/	
+	//	".video-stream { height: 95vh !important; }" affects all vids including embeds
+	//	".ytp-chrome-top, .ytp-gradient-top { display: none !important; }" //removes the top video title and and bar
 	].join("\n");
     document.head.appendChild(css);
 })();

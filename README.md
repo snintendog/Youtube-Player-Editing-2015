@@ -7,3 +7,5 @@ Credits
 Reddit User TheCoryKid for Auto hide
 
 Github User MechaLynx For Restore Watch Later Script
+
+Greasyfork/userstyle User anon ymous/anon1928 For the Progress Bar Fix

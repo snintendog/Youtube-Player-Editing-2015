@@ -42,7 +42,8 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 		".ytp-button.ytp-cards-button { top: 0% !important;}",		
 		":not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }",
 		"#watch7-content {transform: translateY(30px); }",
-
+		".ytp-bezel {border-radius: 10px!important; }", //Changes the Circle play/pause flash to a rounded square
+		
 		///*Control Style*/
 		".ytp-chrome-controls{ height: 30px !important; line-height: 30px !important;Display: block !important; }",
 		".ytp-progress-bar-container { background: black !important;display: block !important;bottom: 27px !important; }",
@@ -68,8 +69,15 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 	//	".ytp-fullscreen .html5-video-container { margin-top: 2% !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
 		
 		///*Embedded Fixes*/	
-	//	".video-stream { height: 95vh !important; }" affects all vids including embeds
-	//	".ytp-chrome-top, .ytp-gradient-top { display: none !important; }" //removes the top video title and and bar
+	//	".video-stream { height: 95vh !important; }", affects all vids including embeds
+	//	".ytp-chrome-top, .ytp-gradient-top { display: none !important; }", //removes the top video title and and bar
+		
+		///*UI Fixes*/
+		"#masthead-positioner {position:relative!important;top:0!important;}", //Static Header Fix
+		"#masthead-positioner-height-offset{display:none!important}", //Static Header Fix
+		".yt-valign-container.guide-count-value{display: none!important;}", // Remove Guide Count
+	
+	
 	].join("\n");
     document.head.appendChild(css);
 })();

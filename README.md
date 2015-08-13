@@ -11,3 +11,19 @@ Reddit User TheCoryKid for Auto hide
 Github User MechaLynx For Restore Watch Later Script
 
 Greasyfork/userstyle User anon ymous/anon1928 For the Progress Bar Fix
+
+To Do List
+
+Decided to Go further than originally planned.
+
+UI
+
+Grid Subsciptions , Watch Page Auto Play Next video removal and disable default , Hide Comments Section and load with a button , Auto Expand Description , Color customization , Add Settings Page To contain all Changes and save them
+
+Player
+
+Fix embeds , Allow for full screen to have auto hide and scaled controls/new transparent controls have the mouse over fix not affect full screen while keeping it for embeds and watch page , settings for all of player items to be toggled
+
+Other
+
+Logo and Better Name

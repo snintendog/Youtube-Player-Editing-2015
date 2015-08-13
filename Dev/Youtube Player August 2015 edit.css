@@ -9,7 +9,71 @@
   .ytp-progress-bar-container { background: black !important; bottom: 27px !important; }
   .ytp-chrome-controls{ height: 30px !important; line-height: 30px !important; Display: block !important; }
   .ytp-gradient-bottom { display: none !important; }
+  .ytp-progress-bar-container { width: 96% !important; left: 2% !important; } /*Shrinks the progress bar to fix the offset bug*/
+ 
+    /*Changes the Circle play/pause flash to a rounded square*/
+  .ytp-bezel {border-radius: 10px!important; }
+  
+  /*UI Fixes*/
+  /*Header Fixed off*/
+  #masthead-positioner {position:relative!important;top:0!important;}
+  #masthead-positioner-height-offset{display:none!important}
 
+  /*Removes Guide Count*/
+  .yt-valign-container.guide-count-value{display: none!important;}
+  
+  /*Colors research
+  /*Front button to activate contenet
+  .ytp-large-play-button-bg{fill:#145 !important;}
+  /* Teaser Box & in this video 
+.ytp-cards-teaser .ytp-cards-teaser-box {background: #1c1c1c;}
+.ytp-cards-teaser .ytp-cards-teaser-text {color: #fff;}
+.iv-card-content, .iv-card-action {background: #1c1c1c;color: #767676;}
+.iv-drawer .iv-card h2, span.iv-card-action {color: #fff;}
+  /*Player Items colors
+.ytp-scrubber-button {background: #3498db;}
+div.ytp-play-progress {background-color: #3498db;}
+div.ytp-load-progress {background-color: #2c3e50;}
+#progress {background-color: #3498db;border: 2px solid #3498db;}
+div.ytp-hover-progress.ytp-hover-progress-light.ytp-hover-progress-shown {background-color: #4b6680;}
+.ytp-button-panel {text-decoration: none;}
+.ytp-volume-slider-handle {background-color: #bdbdbd;}
+.ytp-volume-slider-handle:before, .ytp-big-mode .ytp-volume-slider-handle:before {background: #3498db;}
+.ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {background: #3498db;}
+.waiting {background-color: #3498db;}
+.ytp-panelpopup {position: absolute;overflow: hidden;border-radius: 0px;background: #1c1c1c;color: #bbb;}
+.ytp-settings-button.ytp-hd-quality-badge:after, .ytp-settings-button.ytp-4k-quality-badge:after, .ytp-settings-button.ytp-5k-quality-badge:after, .ytp-settings-button.ytp-8k-quality-badge:after {background-color: #3498db;}
+.ytp-menuitem sup {color: #3498db;}
+.guide-item.guide-item-selected, .guide-item.guide-item-selected:hover, .guide-item.guide-item-selected .yt-deemphasized-text, .guide-item.guide-item-selected:hover .yt-deemphasized-text {background: #3498db;color: #fff;}
+.yt-gb-shelf-item-thumbtab.yt-gb-selected-shelf-tab::before {border-bottom: 6px #3498db solid;}
+.category-header .category-title {color: #bdbdbd;}
+/*Player controls colors
+  .ytp-chrome-controls .ytp-button .ytp-svg-fill {fill:currentColor;}
+  .ytp-chrome-controls .ytp-button:hover {color:#3d3d3d;}
+  .ytp-chrome-controls .ytp-button {color:#4d4d4d; opacity:1;}
+  .ytp-time-separator, .ytp-time-duration {color:#666;}
+  .ytp-progress-list { background-color:#444;}
+  .ytp-chrome-bottom {background-color:#ccc; color:#000; text-shadow:none; border:0px solid #ccc; border-width: 1px 12px 0 12px; }
+  /*UI
+  .show-guide #appbar-guide-menu {box-shadow:none; border-color:#CCCCCC; border-style:solid; border-width:0px 1px 1px 0px;}
+  #yt-masthead-container {border-bottom-color:#CCCCCC;}
+  #watch7-user-header .yt-user-photo {border:1px solid #999999;} 
+  #watch7-user-header .yt-user-photo > .video-thumb {border:1px solid white;}
+  .yt-card {box-shadow:none; border:1px solid #e2e2e2;}
+  body {background-color:white;}
+  */
+  
+  
+
+  
+  /*Found in ytpchrome controls play button Affects animation does not use Css more info needed
+  #ytp-12 {animate:dur:"0.2s"; animation-duration: 0s !important; }
+  /*To Play/*M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26*/
+  /*From Pause/*M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28*/
+  /*To Pause/*M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28*/
+  /*From Play/*M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26*/
+  
+  
   
   /*The Player Fixes*/
   .ytp-watch-later-button.ytp-button{ padding: 2px !important }
@@ -31,6 +95,7 @@
   .ytp-big-mode video { height: calc(100% + 33px)!important; padding-bottom: 33px;}
   .ytp-fullscreen .html5-video-container { height: 91%!important; }
   .ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }
+
   
   /*YTC fixes*/
     /*-3px With YTC* fixed/

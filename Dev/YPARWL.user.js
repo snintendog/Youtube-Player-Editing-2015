@@ -48,7 +48,7 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 		".ytp-chrome-controls{ height: 30px !important; line-height: 30px !important;Display: block !important; }",
 		".ytp-progress-bar-container { background: black !important;display: block !important;bottom: 27px !important; }",
 		".ytp-gradient-bottom {height: 0px !important;}",
-		".ytp-watch-later-button.ytp-button{ padding: 2px !important}", //cleans up the watch later restore button to match the rest of the buttons sizes
+		".ytp-watch-later-button.ytp-button{ padding: 2px !important;}", //cleans up the watch later restore button to match the rest of the buttons sizes
 		".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
 			
 		///*Theater Mode Fix*/

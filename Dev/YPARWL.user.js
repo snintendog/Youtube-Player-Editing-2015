@@ -59,9 +59,10 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 		".watch-stage-mode #movie_player { height: calc(100% + 31px)!important; }",
 	
 		///*Fullscreen Fix*/
-		".ytp-big-mode video { height: calc(100% + 33px)!important; }",
-		".ytp-fullscreen .html5-video-container { height: 91%!important; }",
-    		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
+		".ytp-big-mode video { height: calc(100% - 33px)!important; }",
+		".ytp-fullscreen .html5-video-container { height: 100%!important; }",
+		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
+		".ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70% }",
 
 		///*YTC Compatibility Fixes*/
 		".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed
@@ -76,6 +77,9 @@ document.getElementsByClassName('ytp-chrome-controls')[0].appendChild(watchlater
 		"#masthead-positioner {position:relative!important;top:0!important;}", //Static Header Fix
 		"#masthead-positioner-height-offset{display:none!important}", //Static Header Fix
 		".yt-valign-container.guide-count-value{display: none!important;}", // Remove Guide Count
+		".video-extras-sparkbar-likes{background: #590 none repeat scroll 0% 0%}", //Green color for likes bar
+		".video-extras-sparkbar-dislikes{background: #F00 none repeat scroll 0% 0%}",//red color for dislikes bar
+	
 	
 	
 	].join("\n");

@@ -7,17 +7,43 @@
   /*Control Style*/
   div.ytp-chrome-bottom { width: 100% !important; left: 0% !important; height: 30px !important; background: black none repeat scroll 0% 0% !important;  bottom: -2px !important; }
   .ytp-progress-bar-container { background: black !important; bottom: 27px !important; }
-  .ytp-chrome-controls{ height: 30px !important; line-height: 30px !important; Display: block !important; }
+  .ytp-chrome-controls{padding-left:0; padding-right:0; width: 100%; left: 0%; height: 30px !important; line-height: 30px !important; Display: block !important; }
   .ytp-gradient-bottom { display: none !important; }
-  .ytp-progress-bar-container { width: 96% !important; left: 2% !important; } /*Shrinks the progress bar to fix the offset bug*/
+  .ytp-progress-bar-container { width: 97% !important; left: 1.5% !important;} /*Shrinks the progress bar to fix the offset bug*/
  
-    /*Changes the Circle play/pause flash to a rounded square*/
+  /*Changes the Circle play/pause flash to a rounded square*/
   .ytp-bezel {border-radius: 10px!important; }
   
   /*UI Fixes*/
   /*Header Fixed off*/
   #masthead-positioner {position:relative!important;top:0!important;}
   #masthead-positioner-height-offset{display:none!important}
+  
+  /*Like/Unlike Bar colors*/
+  .video-extras-sparkbar-likes{background: #590 none repeat scroll 0% 0%}/*Green color for likes bar*/
+  .video-extras-sparkbar-dislikes{background: #F00 none repeat scroll 0% 0%}/*red color for dislikes bar*/
+  
+  /*Like/Unlike Button colors*/
+    /*Like button
+  .like-button-renderer-like-button-unclicked::before, .like-button-renderer-like-button-unclicked::after
+  .like-button-renderer-like-button-unclicked:hover::before, .like-button-renderer-like-button-unclicked:hover::after
+  .like-button-renderer-like-button.yt-uix-button:active::before, .like-button-renderer-like-button.yt-uix-button.yt-uix-button-toggled::before
+  .like-button-renderer-like-button-clicked:hover::before, .like-button-renderer-like-button-clicked:hover::after
+  .like-button-renderer-like-button-unclicked .yt-uix-button-content
+  .like-button-renderer-like-button-unclicked:hover .yt-uix-button-content{color:#590}
+  
+  /*Dislike Button
+  .like-button-renderer-dislike-button-unclicked::before, .like-button-renderer-dislike-button-unclicked::after
+  .like-button-renderer-dislike-button-unclicked:hover::before, .like-button-renderer-dislike-button-unclicked:hover::after 
+  .like-button-renderer-dislike-button.yt-uix-button:active::before, .like-button-renderer-dislike-button.yt-uix-button.yt-uix-button-toggled::before
+  .like-button-renderer-dislike-button-clicked:hover::before, .like-button-renderer-dislike-button-clicked:hover::after
+  .like-button-renderer-dislike-button-unclicked .yt-uix-button-content
+  .like-button-renderer-dislike-button-unclicked:hover .yt-uix-button-content{color:#F00}
+  */
+  
+  
+  /*Remove Auto Play Next Toggle*/
+  /*.checkbox-on-off {display: none !important;}*/
 
   /*Removes Guide Count*/
   .yt-valign-container.guide-count-value{display: none!important;}
@@ -61,7 +87,13 @@ div.ytp-hover-progress.ytp-hover-progress-light.ytp-hover-progress-shown {backgr
   #watch7-user-header .yt-user-photo > .video-thumb {border:1px solid white;}
   .yt-card {box-shadow:none; border:1px solid #e2e2e2;}
   body {background-color:white;}
+  
   */
+
+  
+ 
+  
+  
   
   
 
@@ -92,13 +124,13 @@ div.ytp-hover-progress.ytp-hover-progress-light.ytp-hover-progress-shown {backgr
   .watch-wide .watch-playlist{ transform: translateY(89%)!important; margin-bottom: 30px; }/*Fixes wide+playlist/mix*/
 
   /*Fullscreen settings*/
-  .ytp-big-mode video { height: calc(100% + 33px)!important; padding-bottom: 33px;}
-  .ytp-fullscreen .html5-video-container { height: 91%!important; }
+  .ytp-big-mode video { height: calc(100% - 33px)!important; padding-bottom: 33px;}
+  .ytp-fullscreen .html5-video-container { height: 100%!important; }
   .ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }
-
+  .ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70% }
   
   /*YTC fixes*/
-    /*-3px With YTC* fixed/
+  /*-3px With YTC* fixed*/
  .html5-video-content{ top: 0% !important; }
   /*-2% with YTCenter dev >V 531 on*/
  .video-stream{ margin-top: -2% !important; }

@@ -2,14 +2,19 @@
 @-moz-document domain("youtube.com") { 
   /*Control Style*/
   div.ytp-chrome-bottom { width: 100% !important; left: 0% !important; height: 30px !important; background: black none repeat scroll 0% 0% !important;  bottom: -2px !important; }
-  .ytp-progress-bar-container { background: black !important; bottom: 27px !important; }
+  .ytp-progress-bar-container { background: black !important; bottom: 27px !important; width: 96% !important; left: 2% !important; }
   .ytp-chrome-controls{ height: 30px !important; line-height: 30px !important; Display: block !important; }
-  .ytp-gradient-bottom { display: none !important; }
+  .ytp-gradient-bottom, .ytp-gradient-top { display: none !important; }
   .ytp-watch-later-button.ytp-button{ padding: 2px !important }
   .ytp-button.ytp-cards-button { top: 0% !important;}
+  .ytp-bezel {border-radius: 10px!important; }
+  .videowall-still-image { transform: none !important; }
+  .html5-endscreen * { transition-property: none !important; animation: none !important; }
+  
   
   /*Fullscreen settings*/
   .ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }
+  .ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70% }
   /*[[Auto-hide]]*/
   
   /*[[YTC-Fixes]]*/
@@ -17,8 +22,8 @@
 
 /*Inserts below*/
 
-  .ytp-big-mode video { height: calc(100% + 33px)!important; padding-bottom: 33px;}
-  .ytp-fullscreen .html5-video-container { height: 91%!important; }
+  .ytp-big-mode video { height: calc(100% - 33px)!important;}
+  .ytp-fullscreen .html5-video-container { height: 100%!important; }
   
    /*The Player Fixes*/
   .ytp-subtitles-player-content { bottom: 40px!important; }
@@ -31,7 +36,7 @@
   body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }
   .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }
   .watch-wide .watch-playlist{ transform: translateY(89%)!important; margin-bottom: 30px; }/*Fixes wide+playlist/mix*/
-
+    
    /*Auto Hide off*/
   .ytp-chrome-bottom { opacity: 1 !important; }
 

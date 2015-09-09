@@ -11,44 +11,103 @@
   .ytp-gradient-bottom { display: none !important; }
   .ytp-progress-bar-container { width: 97% !important; left: 1.5% !important;} /*Shrinks the progress bar to fix the offset bug*/
  
+
+
+  
   /*Changes the Circle play/pause flash to a rounded square*/
   .ytp-bezel {border-radius: 10px!important; }
   
   /*UI Fixes*/
+  /*Remove Guide Count*/
+  .yt-valign-container.guide-count-value{display: none!important;}
+  
+  /*restores sub count next to sub button after subbing*/
+  .yt-subscription-button-subscriber-count-branded-horizontal.yt-uix-tooltip, /*.yt-subscription-button-subscriber-count-branded-horizontal,*/ .yt-subscription-button-subscriber-count-unbranded-horizontal{display: /*table-cell*/ inline-flex !important;}
+  
   /*Header Fixed off*/
   #masthead-positioner {position:relative!important;top:0!important;}
-  #masthead-positioner-height-offset{display:none!important}
+  #masthead-positioner-height-offset{display:none!important;}
   
   /*Like/Unlike Bar colors*/
   .video-extras-sparkbar-likes{background: #590 none repeat scroll 0% 0%}/*Green color for likes bar*/
   .video-extras-sparkbar-dislikes{background: #F00 none repeat scroll 0% 0%}/*red color for dislikes bar*/
   
   /*Like/Unlike Button colors*/
-    /*Like button
-  .like-button-renderer-like-button-unclicked::before, .like-button-renderer-like-button-unclicked::after
-  .like-button-renderer-like-button-unclicked:hover::before, .like-button-renderer-like-button-unclicked:hover::after
-  .like-button-renderer-like-button.yt-uix-button:active::before, .like-button-renderer-like-button.yt-uix-button.yt-uix-button-toggled::before
-  .like-button-renderer-like-button-clicked:hover::before, .like-button-renderer-like-button-clicked:hover::after
-  .like-button-renderer-like-button-unclicked .yt-uix-button-content
-  .like-button-renderer-like-button-unclicked:hover .yt-uix-button-content{color:#590}
+    /*Like button*/
+  .like-button-renderer-like-button-unclicked::before, .like-button-renderer-like-button-unclicked::after {}/*Thumbs up not hover unclicked*/
+  .like-button-renderer-like-button-unclicked:hover::before, .like-button-renderer-like-button-unclicked:hover::after {}/*Thumbs up Hover Unclicked*/
+  .like-button-renderer-like-button.yt-uix-button:active::before, .like-button-renderer-like-button.yt-uix-button.yt-uix-button-toggled::before{}/*Thumbs up Clicked not hover*/
+  .like-button-renderer-like-button-clicked:hover::before, .like-button-renderer-like-button-clicked:hover::after{}/*Thumbs up Clicked Hover*/
   
-  /*Dislike Button
-  .like-button-renderer-dislike-button-unclicked::before, .like-button-renderer-dislike-button-unclicked::after
-  .like-button-renderer-dislike-button-unclicked:hover::before, .like-button-renderer-dislike-button-unclicked:hover::after 
-  .like-button-renderer-dislike-button.yt-uix-button:active::before, .like-button-renderer-dislike-button.yt-uix-button.yt-uix-button-toggled::before
-  .like-button-renderer-dislike-button-clicked:hover::before, .like-button-renderer-dislike-button-clicked:hover::after
-  .like-button-renderer-dislike-button-unclicked .yt-uix-button-content
-  .like-button-renderer-dislike-button-unclicked:hover .yt-uix-button-content{color:#F00}
-  */
+  .like-button-renderer-like-button-unclicked:hover .yt-uix-button-content{color:#590} /*Number Hover unclicked*/
+  .like-button-renderer-like-button-unclicked .yt-uix-button-content{}/*Number Not Hover unclicked*/
+  .like-button-renderer-like-button-clicked:hover .yt-uix-button-content{color: #590}/*Number Not Hover clicked*/
+  .like-button-renderer-like-button-clicked .yt-uix-button-content{color: #590}/*Number Hover clicked*/
   
+    /*Dislike Button*/
+  .like-button-renderer-dislike-button-unclicked::before, .like-button-renderer-dislike-button-unclicked::after{}/*Thumbs up not hover unclicked*/
+  .like-button-renderer-dislike-button-unclicked:hover::before, .like-button-renderer-dislike-button-unclicked:hover::after{}/*Thumbs up Hover Unclicked*/
+  .like-button-renderer-dislike-button.yt-uix-button:active::before, .like-button-renderer-dislike-button.yt-uix-button.yt-uix-button-toggled::before{}/*Thumbs up Clicked not hover*/
+  .like-button-renderer-dislike-button-clicked:hover::before, .like-button-renderer-dislike-button-clicked:hover::after{}/*Thumbs up Clicked Hover*/
+  
+  .like-button-renderer-dislike-button-unclicked:hover .yt-uix-button-content{color:#F00}/*Number Hover unclicked*/
+  .like-button-renderer-dislike-button-unclicked .yt-uix-button-content{}/*Number Not Hover unclicked*/
+  .like-button-renderer-dislike-button-clicked:hover .yt-uix-button-content{color: #F00}/*Number Hover clicked*/
+  .like-button-renderer-dislike-button-clicked .yt-uix-button-content{color: #F00}/*Number Not Hover unclicked*/
   
   /*Remove Auto Play Next Toggle*/
   /*.checkbox-on-off {display: none !important;}*/
 
-  /*Removes Guide Count*/
-  .yt-valign-container.guide-count-value{display: none!important;}
+  /*embeds research*/
+  div#player.full-frame{height: calc(100% + 0px) !important;}/*changes controls height but not container only embeds*/
+  div#player.full-frame:hover .ytp-chrome-bottom, div#player.full-frame:hover .ytp-chrome-top { opacity: 1 !important; } /*shows control bar on hover of embed*/
+  div#player.full-frame .ytp-chrome-bottom, div#player.full-frame .ytp-chrome-top { opacity: 0 !important; }/*hides control bar on embeds*/
+  /*.html5-video-container{position: relative; transform-origin: top center;}*/
   
-  /*Colors research
+  /*Wacth later Button in top right corner*/
+/*.ytp-hide-info-bar .ytp-chrome-top {display: inherit !important;}
+.ytp-hide-info-bar .ytp-chrome-top > .ytp-title, .ytp-hide-info-bar .ytp-chrome-top > .ytp-share-button {display: none !important;}*/
+
+
+
+  
+  
+  /*The Player Fixes*/
+  .ytp-watch-later-button.ytp-button{ padding: 2px !important; }
+  .ytp-subtitles-player-content { bottom: 40px!important; }
+  :not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }
+  #watch7-content {transform: translateY(30px); }
+  #player-api:hover .annotation.iv-branding { bottom: 5% !important;} /*move the channel brand annotation visible on hover*/
+  .annotation.iv-branding {bottom: -30px !important;}/*hides the channel brand behind the controls*/
+  .ytp-player-content.ytp-iv-player-content{ bottom: 30px}/*fixes the bounceing channel brand*/
+  #player-api:hover .ytp-button.ytp-cards-button {opacity: 1!important;}/*allow the icard icon to appear on hover*/
+  .ytp-button.ytp-cards-button { opacity: 0 !important; top: 0% !important;}/*fixes position and hides when not hovering*/
+  .videowall-still-image { transform: none !important; }/*videos in endscreen no longer zoom on hover*/
+  .html5-endscreen  { transition-property: none !important; animation: none !important; }/*removes the endscren animation*/
+
+  
+  /*Theater Mode Fix*/
+  .watch-stage-mode #movie_player { height: calc(100% + 31px)!important; }
+  body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); } 
+  body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }
+  .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }
+  .watch-wide .watch-playlist{ transform: translateY(89%)!important; margin-bottom: 30px; }/*Fixes wide+playlist/mix*/
+
+  /*Fullscreen settings*/
+  .ytp-big-mode video { height: calc(100% - 33px)!important; padding-bottom: 33px;}
+  .ytp-fullscreen .html5-video-container { height: 100%!important; }
+  .ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }
+  .ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70% }
+  
+  /*YTC fixes*/
+  /*-3px With YTC* fixed*/
+ .html5-video-content{ top: 0% !important; }
+  /*-2% with YTCenter dev >V 531 on*/
+ .video-stream{ margin-top: -2% !important; }
+  /*Counters YTC fix in fullscreen*/
+ .ytp-fullscreen .html5-video-container { margin-top: 2% !important; }
+
+    /*Colors research
   /*Front button to activate contenet
   .ytp-large-play-button-bg{fill:#145 !important;}
   /* Teaser Box & in this video 
@@ -91,13 +150,6 @@ div.ytp-hover-progress.ytp-hover-progress-light.ytp-hover-progress-shown {backgr
   */
 
   
- 
-  
-  
-  
-  
-
-  
   /*Found in ytpchrome controls play button Affects animation does not use Css more info needed
   #ytp-12 {animate:dur:"0.2s"; animation-duration: 0s !important; }
   /*To Play/*M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26*/
@@ -105,38 +157,6 @@ div.ytp-hover-progress.ytp-hover-progress-light.ytp-hover-progress-shown {backgr
   /*To Pause/*M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28*/
   /*From Play/*M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26*/
   
-  
-  
-  /*The Player Fixes*/
-  .ytp-watch-later-button.ytp-button{ padding: 2px !important }
-  .ytp-subtitles-player-content { bottom: 40px!important; }
-  :not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }
-  #watch7-content {transform: translateY(30px); }
-  .ytp-button.ytp-cards-button { top: 0% !important;}
-  
-
-  
-  /*Theater Mode Fix*/
-  .watch-stage-mode #movie_player { height: calc(100% + 31px)!important; }
-  body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); } 
-  body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }
-  .watch-stage-mode #theater-background{  bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: black!important; height: 0px!important; width: 100%!important; }
-  .watch-wide .watch-playlist{ transform: translateY(89%)!important; margin-bottom: 30px; }/*Fixes wide+playlist/mix*/
-
-  /*Fullscreen settings*/
-  .ytp-big-mode video { height: calc(100% - 33px)!important; padding-bottom: 33px;}
-  .ytp-fullscreen .html5-video-container { height: 100%!important; }
-  .ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }
-  .ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70% }
-  
-  /*YTC fixes*/
-  /*-3px With YTC* fixed*/
- .html5-video-content{ top: 0% !important; }
-  /*-2% with YTCenter dev >V 531 on*/
- .video-stream{ margin-top: -2% !important; }
-  /*Counters YTC fix in fullscreen*/
- .ytp-fullscreen .html5-video-container { margin-top: 2% !important; }
-
   
   /*.watch-playlist{
     

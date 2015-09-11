@@ -10,17 +10,40 @@
   .ytp-chrome-controls{padding-left:0; padding-right:0; width: 100%; left: 0%; height: 30px !important; line-height: 30px !important; Display: block !important; }
   .ytp-gradient-bottom { display: none !important; }
   .ytp-progress-bar-container { width: 97% !important; left: 1.5% !important;} /*Shrinks the progress bar to fix the offset bug*/
- 
 
-
-  
   /*Changes the Circle play/pause flash to a rounded square*/
   .ytp-bezel {border-radius: 10px!important; }
   
   /*UI Fixes*/
   /*Remove Guide Count*/
   .yt-valign-container.guide-count-value{display: none!important;}
-  
+    
+  /*Grid Subs*/
+  .feed-item-container .branded-page-module-title {display: none !important; height: 0 !important; }
+  #browse-items-primary {font-size: 0;margin-right: -10px;padding: 15px;padding-right: 0;}
+  #browse-items-primary .section-list > li { display: inline-block;margin-right: 10px;width: 200px; word-wrap: break-word;}/**/
+  #browse-items-primary .expanded-shelf-content-item{ margin-bottom: initial;margin-right: initial;}
+  #browse-items-primary .item-section .feed-item-container {border: initial;padding: initial; }
+  #browse-items-primary .item-section .feed-item-container .menu-container{opacity: 0;}
+  #browse-items-primary .item-section .feed-item-container:hover .menu-container{ opacity: 1; }
+  #browse-items-primary .item-section .feed-item-container .menu-container{ top: 20px;left: -98%;z-index: 1;}/*video menu button*/
+  #browse-items-primary .yt-lockup-thumbnail {float: initial !important; }
+  #browse-items-primary .yt-lockup-meta, div#browse-items-primary .yt-lockup-byline { max-width: 296px; }
+  #browse-items-primary .yt-lockup-title, div#browse-items-primary .feed-item-dismissal {max-width: 296px;}
+  .yt-lockup-meta-info > li { display: inline; }
+  .yt-lockup-meta-info, .feed-item-container .yt-ui-ellipsis, .yt-lockup-content div{ display: block;   overflow: hidden; text-overflow: ellipsis; white-space: normal;}
+  .yt-ui-ellipsis:before {content: "...";}
+  .yt-ui-ellipsis:after {content: "...";}
+  .yt-ui-ellipsis-2 {max-height: 2.5em!important;}
+  .yt-ui-ellipsis {line-height: 1.2em; white-space: normal!important;}
+  .expanded-shelf {height: 200px!important;}
+  .watched-badge{top: 0px; left: 0px;}
+  ul.yt-badge-list {display: none!important;}/*Live now badge and live schedule badge hidden*/
+  .yt-uix-livereminder{display: none!important;}/*Live reminder button*/
+  .yt-uix-button-menu.yt-uix-button-menu-action-menu, .yt-uix-button-menu-mask {top: 100%!important;left: 100%!important;}
+  .exp-responsive .feed .yt-lockup-dismissable .yt-lockup-title .yt-uix-tile-link{margin-right: 10px!important;}
+  .branded-page-v2-col-container{width: 101%;}
+  div.branded-page-v2-secondary-col {display: none!important;}/*Removes the recomended channel panel*/
   /*restores sub count next to sub button after subbing*/
   .yt-subscription-button-subscriber-count-branded-horizontal.yt-uix-tooltip, /*.yt-subscription-button-subscriber-count-branded-horizontal,*/ .yt-subscription-button-subscriber-count-unbranded-horizontal{display: /*table-cell*/ inline-flex !important;}
   
@@ -35,25 +58,21 @@
   /*Like/Unlike Button colors*/
     /*Like button*/
   .like-button-renderer-like-button-unclicked::before, .like-button-renderer-like-button-unclicked::after {}/*Thumbs up not hover unclicked*/
-  .like-button-renderer-like-button-unclicked:hover::before, .like-button-renderer-like-button-unclicked:hover::after {}/*Thumbs up Hover Unclicked*/
-  .like-button-renderer-like-button.yt-uix-button:active::before, .like-button-renderer-like-button.yt-uix-button.yt-uix-button-toggled::before{}/*Thumbs up Clicked not hover*/
-  .like-button-renderer-like-button-clicked:hover::before, .like-button-renderer-like-button-clicked:hover::after{}/*Thumbs up Clicked Hover*/
+.like-button-renderer-like-button-unclicked:hover::before, .like-button-renderer-like-button-unclicked:hover::after, .like-button-renderer-like-button-clicked:hover::before, .like-button-renderer-like-button-clicked:hover::after, .like-button-renderer-like-button.yt-uix-button:active::before, .like-button-renderer-like-button.yt-uix-button.yt-uix-button-toggled::before {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAA%2FklEQVQ4jd3TIUsEYRDG8T8ajBY%2FhKD9bJ7RdmVmd4MfwXQYBfuBGCzPrMEmnMVkFUwWrTYNCtpNXlnL3SF3ewvrvckHpr3zG16GgX8bC25cnCfBXPRNVBa8LQUd3rLmwcBEZaLy4PPPmAW7Jp4n2Bi8ag%2BJdReXvyETlYtRdsF2Kywr2XHxWodZSdbYnJd085LuZGoW7LsYzWLTCl4suLaSo1x0TipWZr82fQxgwdlCrL7eU4NPSUEXx0nBQmwmA108zm15SbCfDgy%2BC7GRDHQxnMMAXPRc9HLRgfGVBAML7k18NYB7tWBTbMhqEWxZcODBqQV3Jj5MPLTG2uYHwfFWWxOdg3AAAAAASUVORK5CYII%3D);}
   
   .like-button-renderer-like-button-unclicked:hover .yt-uix-button-content{color:#590} /*Number Hover unclicked*/
   .like-button-renderer-like-button-unclicked .yt-uix-button-content{}/*Number Not Hover unclicked*/
   .like-button-renderer-like-button-clicked:hover .yt-uix-button-content{color: #590}/*Number Not Hover clicked*/
-  .like-button-renderer-like-button-clicked .yt-uix-button-content{color: #590}/*Number Hover clicked*/
+  .like-button-renderer-like-button-clicked .yt-uix-button-content{color: #590 !important;}/*Number Hover clicked*/
   
     /*Dislike Button*/
   .like-button-renderer-dislike-button-unclicked::before, .like-button-renderer-dislike-button-unclicked::after{}/*Thumbs up not hover unclicked*/
-  .like-button-renderer-dislike-button-unclicked:hover::before, .like-button-renderer-dislike-button-unclicked:hover::after{}/*Thumbs up Hover Unclicked*/
-  .like-button-renderer-dislike-button.yt-uix-button:active::before, .like-button-renderer-dislike-button.yt-uix-button.yt-uix-button-toggled::before{}/*Thumbs up Clicked not hover*/
-  .like-button-renderer-dislike-button-clicked:hover::before, .like-button-renderer-dislike-button-clicked:hover::after{}/*Thumbs up Clicked Hover*/
+.like-button-renderer-dislike-button-unclicked:hover::before, .like-button-renderer-dislike-button-unclicked:hover::after, .like-button-renderer-dislike-button.yt-uix-button:active::before, .like-button-renderer-dislike-button.yt-uix-button.yt-uix-button-toggled::before, .like-button-renderer-dislike-button-clicked:hover::before, .like-button-renderer-dislike-button-clicked:hover::after{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAA0UlEQVQ4jdXTMQ4BURDG8X8olBqHkNDTodRtp3KKjdIJNhGFA%2BgkNG4gUWlodRQk9CqaT2Eim7U2u%2Bs1vmSal5nfFO89%2BMsINoKLYCUYCfqCmqCYB%2BsI9KVugrUgEDStvyHwBN43cJ4Ahmts%2Fe%2BzOKwiuLsE%2FZRYanDrDBRUM2CpwKFrcOcaPLsGC3o90oFgITgkYA9B1%2Bbqgrag%2FXHLkQU9G4xiR9kvSR3bGodNBeVMmIGzCLQXtDJDIfAawgJBKTdm4Mkw%2FycoBE4ESyfYr3kCsM9h5QX1lRAAAAAASUVORK5CYII%3D);}
   
   .like-button-renderer-dislike-button-unclicked:hover .yt-uix-button-content{color:#F00}/*Number Hover unclicked*/
   .like-button-renderer-dislike-button-unclicked .yt-uix-button-content{}/*Number Not Hover unclicked*/
   .like-button-renderer-dislike-button-clicked:hover .yt-uix-button-content{color: #F00}/*Number Hover clicked*/
-  .like-button-renderer-dislike-button-clicked .yt-uix-button-content{color: #F00}/*Number Not Hover unclicked*/
+  .like-button-renderer-dislike-button-clicked .yt-uix-button-content{color: #F00!important;}/*Number Not Hover clicked*/
   
   /*Remove Auto Play Next Toggle*/
   /*.checkbox-on-off {display: none !important;}*/
@@ -75,6 +94,8 @@
   /*The Player Fixes*/
   .ytp-watch-later-button.ytp-button{ padding: 2px !important; }
   .ytp-subtitles-player-content { bottom: 40px!important; }
+  ytp-tooltip-image-enabled,.ytp-tooltip.ytp-bottom { bottom: 35px!important; top: auto!important;}
+  
   :not(.watch-stage-mode) #movie_player { height: calc(100% + 30px)!important; }
   #watch7-content {transform: translateY(30px); }
   #player-api:hover .annotation.iv-branding { bottom: 5% !important;} /*move the channel brand annotation visible on hover*/

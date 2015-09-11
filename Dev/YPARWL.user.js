@@ -74,7 +74,7 @@
 		".ytp-gradient-bottom, .ytp-gradient-top {display: none!important;}",
 		".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
 		".ytp-watch-later-button.ytp-button{ padding: 2px !important; float: right!important;}", //cleans up the watch later restore button to match the rest of the buttons sizes/corrects position
-		".ytp-tooltip-image-enabled { bottom: 35px!important; top: auto!important};",//the watchlater popoup	
+		".ytp-tooltip-image-enabled, .ytp-tooltip.ytp-bottom{ bottom: 35px!important; top: auto!important};",//the player tooltip popoups	
 			
 		///*Theater Mode Fix*/
 		".watch-wide .watch-playlist{ transform: translateY(89%)!important; margin-bottom: 30px; }", //Fixes wide+playlist/mix

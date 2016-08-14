@@ -191,7 +191,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		///*Grid Subsciption Page*/
 		".feed-item-container .branded-page-module-title {display: none !important; height: 0 !important; }",
 		"#browse-items-primary {font-size: 0;}",
-		".section-list {padding-left: 15px;}",
+		".section-list {padding-left: 10px;}",
 		"#browse-items-primary .section-list > li { display: inline-block;margin-right: 10px;width: 200px; word-wrap: break-word;}",	
 		"#browse-items-primary .expanded-shelf-content-item{ margin-bottom: initial;margin-right: initial;}",
 		"#browse-items-primary .item-section .feed-item-container {border: initial;padding: initial; }",	
@@ -219,6 +219,10 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		".yt-uix-menu.yt-uix-menu-sibling-content > .yt-uix-menu-mask, .yt-uix-menu.yt-uix-menu-sibling-content > .yt-uix-menu-content{left: auto !important; right: 0px !important; min-width: 110px !important;}",	
 		".pl-video .pl-video-time {width: 90px !important;}",
 			
+		///*Font Fixes*/
+		"#page-container{font-family:arial,sans-serif /*Comic Sans MS,Comic Sans*/ !important;}",
+		"body.exp-roboto, .exp-roboto button, .exp-roboto input, .exp-roboto textarea, .exp-roboto select{font-family:arial, sans-serif /*Comic Sans*/ !important}",
+		".video-list, .video-list-item, .title, .yt-user-info a, .comment-header, .all-comments, .all-comments a, .user-name, .watch-time-text, .yt-lockup-title a,  .yt-lockup-byline, .comment-renderer-header, .comment-author-text, strong{font-weight: 600 !important;}",	
 			
 	].join("\n");
     document.head.appendChild(css);

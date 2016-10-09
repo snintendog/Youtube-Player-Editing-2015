@@ -90,10 +90,11 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
     css.type = "text/css";
     css.textContent = [
 		///*Auto Hide off*/
-		"div.ytp-chrome-bottom { opacity: 1 !important; display: block !important; width: 100% !important; left: 0% !important; height: 30px !important; background: black !important; bottom: -2px !important; max-width: 100% !important; min-width: 0% !important; }",
+		"div.ytp-chrome-bottom { opacity: 1 !important; display: block !important;  height: 30px !important; background: black !important; bottom: -2px !important; max-width: 100% !important; min-width: 0% !important; }",
 		
 		///*The Player Fixes*/
 		".ytp-subtitles-player-content { bottom: 40px !important; }", //subtitles fix no longer bounces or hides on mouse hover
+		".caption-window.ytp-caption-window-bottom {	margin-bottom:30px!important }",
 		".ytp-button.ytp-cards-button { top: 0% !important;}",		
 		":not(.watch-stage-mode) #movie_player { height: calc(100% + 33px)!important; }",
 		"#watch7-content {transform: translateY(30px); }",
@@ -107,20 +108,23 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
     ".ytp-player-content.ytp-iv-player-content{ bottom: 30px;}", //fixes the bounceing channel brand
     "#player-api:hover .ytp-button.ytp-cards-button {opacity: 1!important;}", //allow the icard icon to appear on hover
     ".ytp-button.ytp-cards-button { opacity: 0 !important; top: 0% !important;}", //fixes position and hides when not hovering
-			
+			".ytp-ce-element{transform: translateY(14%)!important;}",
 			
 			
 		///*Control Style*/
+		"#movie_player:not(.ytp-fullscreen) .ytp-chrome-bottom { border: 0px solid #000; border-width: 1px 12px 0px 12px!important; left:0 !important;}",
 		".ytp-chrome-controls{ height: 30px !important; line-height: 30px !important;Display: block !important; }",
-		".ytp-progress-bar-container { background: black !important;display: block !important;bottom: 27px !important; }",
+		".ytp-progress-bar-container { background: black !important;display: block !important;bottom: 29px !important; }",
 		".ytp-gradient-bottom, .ytp-gradient-top {display: none!important;}",
-		".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
+			".ytp-progress-list {transform-origin: center bottom !important;}",
+			"#movie_player:not(.ytp-fullscreen) .ytp-chrome-controls {padding-left: 0; padding-right: 0; margin-left: -12px; margin-right: -12px; }",
+		//".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
 		".ytp-watch-later-button.ytp-button{ padding: 2px !important; float: left !important;}", //cleans up the watch later restore button to match the rest of the buttons sizes/corrects position
 		".ytp-tooltip-image-enabled ,.ytp-tooltip.ytp-bottom{ bottom: 35px!important; top: auto!important;}",//the watchlater popoup	
 			".ytp-time-display {font-size: 90%; line-height: 29px !important;}",
 			".ytp-volume-slider-handle { }",
 			".ytp-volume-slider-handle::before { background: red; left: -64px }",
-
+			".ytp-subtitles-button.ytp-button {display: inline !important;}",
 			
 		///*Related Panel Style*/
 		".exp-wn-font-14 .related-list-item span.title{font-size: 13px}",
@@ -134,7 +138,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		".watch-stage-mode #theater-background { bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: #f1f1f1!important; height: 0px!important; width: 100%!important; }",
 		".watch-wide .watch-playlist{ transform: translateY(84%)!important; margin-bottom: 30px; }", //Fixes wide+playlist/mix
 		"body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); }",
-		"body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }",
+			"body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }",
 		".watch-stage-mode #movie_player { height: calc(100% + 31px)!important; }",
 			".watch-stage-mode #theater-background {background-color: transparent !important;}",
 		".watch-stage-mode #watch7-sidebar-discussion {margin-top: 12%;}",
@@ -142,15 +146,22 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		
 		///*Fullscreen Fix*/
 		".ytp-big-mode video { height: calc(100% - 33px)!important; }",
-		".ytp-fullscreen .html5-video-container { height: 100%!important; }",
+		".ytp-fullscreen .html5-video-container { height: 95%!important; }",
 		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
 		".ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70%; }",
-
+		".ytp-big-mode .ytp-chrome-top{ display: none !important;}",
+			
+		///*4:3 Fixes*/
+		".html5-video-container{max-height: 360px !important; margin-top: 17px}",
+    ".watch-stage-mode .html5-video-container{max-height: 480px !important; margin-top: 17px}",
+    ".ytp-big-mode .html5-video-container{max-height: 1080px !important; margin-top: 17px}",
+			
 		///*YTC Compatibility Fixes*/
-		".html5-video-content{top: 1% !important; }", //-2% with YTCenter dev >V 531 on now fixed
-		".video-stream, .ytp-thumbnail-overlay{ margin-top: -2% !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
-		".ytp-fullscreen .html5-video-container { margin-top: 2% !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
-		///*YT+ Compatiblity Fixes*/
+		/*".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed*/
+		".video-stream, .ytp-thumbnail-overlay{ margin-top: -17px !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
+		".ytp-fullscreen .html5-video-container { margin-top: 17px !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
+			".guide-pinned.show-guide .guide-pinning-enabled #P-container{padding-left: 0px !important;}",
+			///*YT+ Compatiblity Fixes*/
 		/*"#movie_player:not(.ended-mode) .html5-video-container video{Height: calc(100% - 30px) !important;}",*/
 			
 		///*Embedded Fixes*/	
@@ -158,11 +169,14 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 	  "div#player.full-frame{height: calc(100% + 0px) !important;}", //changes controls height but not container only embeds
 		"div#player.full-frame:hover .ytp-chrome-bottom, div#player.full-frame:hover .ytp-chrome-top { opacity: 1 !important;}", //shows control bar on hover of embed
 		"div#player.full-frame .ytp-chrome-bottom, div#player.full-frame .ytp-chrome-top { opacity: 0 !important; }", //hides control bar on embeds
+		"div#player.full-frame .ytp-chrome-bottom { border: 0px solid #000; border-width: 0px 12px 0px 12px!important; left:0 !important;}",
 			
 		///*UI Fixes*/
+			".ytp-iv-video-content{top: 0px !important;}",
 		"#masthead-positioner {position:relative!important;top:0!important;}", //Static Header Fix
 		"#masthead-positioner-height-offset{display:none!important;}", //Static Header Fix
 		".yt-valign-container.guide-count-value{display: none!important;}", // Remove Guide Count
+			".ytp-color-white .ytp-swatch-background-color{background-color: Red !important;}", //Scrubber Color
 		".video-extras-sparkbar-likes{background: #590 none repeat scroll 0% 0%;}", //Green color for likes bar
 		".video-extras-sparkbar-dislikes{background: #F00 none repeat scroll 0% 0%;}",//red color for dislikes bar
     ".yt-subscription-button-subscriber-count-branded-horizontal.yt-uix-tooltip, .yt-subscription-button-subscriber-count-unbranded-horizontal{display: inline-flex !important;}", //restores sub count next to sub button after subbing

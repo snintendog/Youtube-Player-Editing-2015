@@ -108,7 +108,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
     ".ytp-player-content.ytp-iv-player-content{ bottom: 30px;}", //fixes the bounceing channel brand
     "#player-api:hover .ytp-button.ytp-cards-button {opacity: 1!important;}", //allow the icard icon to appear on hover
     ".ytp-button.ytp-cards-button { opacity: 0 !important; top: 0% !important;}", //fixes position and hides when not hovering
-			".ytp-ce-element{transform: translateY(14%)!important;}",
+			".ytp-ce-element{transform: translateY(-14%)!important;}",
 			
 			
 		///*Control Style*/
@@ -145,7 +145,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		
 		
 		///*Fullscreen Fix*/
-		".ytp-big-mode video { height: calc(100% - 33px)!important; }",
+		".ytp-big-mode video { height: calc(100% + 33px)!important; }",
 		".ytp-fullscreen .html5-video-container { height: 95%!important; }",
 		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
 		".ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70%; }",
@@ -158,11 +158,14 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 			
 		///*YTC Compatibility Fixes*/
 		/*".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed*/
-		".video-stream, .ytp-thumbnail-overlay{ margin-top: -17px !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
+			".video-stream{margin-top: -17px !important;}", //Issue with YT+ needs -17px or -34px
+			".ytp-thumbnail-overlay{ margin-top: -17px !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
 		".ytp-fullscreen .html5-video-container { margin-top: 17px !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
 			".guide-pinned.show-guide .guide-pinning-enabled #P-container{padding-left: 0px !important;}",
 			///*YT+ Compatiblity Fixes*/
 		/*"#movie_player:not(.ended-mode) .html5-video-container video{Height: calc(100% - 30px) !important;}",*/
+			"#Psettings {float: left;}",
+			"#upload-btn {float: left !important;}", 
 			
 		///*Embedded Fixes*/	
 		"div#player.full-frame{margin-top: 0% !important;}",	
@@ -199,6 +202,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 			//".like-button-renderer-dislike-button-unclicked .yt-uix-button-content{}",
 			".like-button-renderer-dislike-button-clicked:hover .yt-uix-button-content{color: #F00;}",
 			".like-button-renderer-dislike-button-clicked .yt-uix-button-content{color: #F00!important;}",
+			"#comment-section-renderer .sprite-comment-actions, #comment-section-renderer .sprite-comment-actions:hover {border-color: transparent !important;} ",
 			
 			
 			

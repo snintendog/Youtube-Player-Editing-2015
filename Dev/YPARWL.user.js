@@ -25,7 +25,7 @@ function stopVideo()
     }
 }*/
 
-/*(function () {
+(function () {
     "use strict";
     function nukeSubs() {
         var guideSubs = document.getElementById("guide-subscriptions-section");
@@ -36,7 +36,7 @@ function stopVideo()
     }
     document.addEventListener("readystatechange", nukeSubs);
     document.addEventListener("load", nukeSubs, true);
-}());*/
+}());
 
 (function() {
 	var addWatchLater = true;
@@ -119,6 +119,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 			".ytp-progress-list {transform-origin: center bottom !important;}",
 			"#movie_player:not(.ytp-fullscreen) .ytp-chrome-controls {padding-left: 0; padding-right: 0; margin-left: -12px; margin-right: -12px; }",
 		//".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
+			".ytp-watch-later-icon {height: 26px !important; width 36px !important;}",
 		".ytp-watch-later-button.ytp-button{ padding: 2px !important; float: left !important;}", //cleans up the watch later restore button to match the rest of the buttons sizes/corrects position
 		".ytp-tooltip-image-enabled ,.ytp-tooltip.ytp-bottom{ bottom: 35px!important; top: auto!important;}",//the watchlater popoup	
 			".ytp-time-display {font-size: 90%; line-height: 29px !important;}",
@@ -146,7 +147,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		
 		///*Fullscreen Fix*/
 		".ytp-big-mode video { height: calc(100% + 33px)!important; }",
-		".ytp-fullscreen .html5-video-container { height: 95%!important; }",
+		".ytp-fullscreen .html5-video-container { height: 93%!important; }",
 		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
 		".ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70%; }",
 		".ytp-big-mode .ytp-chrome-top{ display: none !important;}",
@@ -158,9 +159,9 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 			
 		///*YTC Compatibility Fixes*/
 		/*".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed*/
-			".video-stream{margin-top: -17px !important;}", //Issue with YT+ needs -17px or -34px
+			".video-stream{margin-top: -34px !important;}", //Issue with YT+ needs -17px or -34px
 			".ytp-thumbnail-overlay{ margin-top: -17px !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
-		".ytp-fullscreen .html5-video-container { margin-top: 17px !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
+		".ytp-fullscreen .html5-video-container { margin-top: 34px !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
 			".guide-pinned.show-guide .guide-pinning-enabled #P-container{padding-left: 0px !important;}",
 			///*YT+ Compatiblity Fixes*/
 		/*"#movie_player:not(.ended-mode) .html5-video-container video{Height: calc(100% - 30px) !important;}",*/
@@ -179,9 +180,11 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		"#masthead-positioner {position:relative!important;top:0!important;}", //Static Header Fix
 		"#masthead-positioner-height-offset{display:none!important;}", //Static Header Fix
 		".yt-valign-container.guide-count-value{display: none!important;}", // Remove Guide Count
-			".ytp-color-white .ytp-swatch-background-color{background-color: Red !important;}", //Scrubber Color
+		//".ytp-chrome-bottom, .ytp-chrome-controls, .ytp-progress-bar-container {border-color: gray !important; background: gray !important;}",// Contols Color
+		".ytp-color-white .ytp-swatch-background-color{background-color: Red !important;}", //Scrubber Color
 		".video-extras-sparkbar-likes{background: #590 none repeat scroll 0% 0%;}", //Green color for likes bar
 		".video-extras-sparkbar-dislikes{background: #F00 none repeat scroll 0% 0%;}",//red color for dislikes bar
+		//".ytp-volume-slider-handle::before {background: red none repeat scroll 0 0 !important;}",// Volume bar Color
     ".yt-subscription-button-subscriber-count-branded-horizontal.yt-uix-tooltip, .yt-subscription-button-subscriber-count-unbranded-horizontal{display: inline-flex !important;}", //restores sub count next to sub button after subbing
 	  "#guide-subscriptions-section{display: none;}",
 		".guide-pinned .guide-pinning-enabled #appbar-guide-menu{postion: absolute;}",

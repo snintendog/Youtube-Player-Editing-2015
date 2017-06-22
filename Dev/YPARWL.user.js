@@ -173,13 +173,17 @@ window.addEventListener('loadedmetadata', onLoadedmetadata, true);
     css.type = "text/css";
     css.textContent = [
 		///*Auto Hide off*/
-		"div.ytp-chrome-bottom { opacity: 1 !important; display: block !important;  height: 30px !important; background: black !important; bottom: -2px !important; max-width: 100% !important; min-width: 0% !important; }",
-		
+		"div.ytp-chrome-bottom { opacity: 1 !important; display: block !important;  height: 30px !important; background: black !important; max-width: 100% !important; min-width: 0% !important; }",
+		"div.ytp-chrome-bottom:not(.ytp-fullscreen) {bottom: -35px}",
+		".ytp-big-mode .ytp-chrome-bottom{bottom:-2px!important;}",
+		"#player-api:not(.ytp-big-mode) {overflow:hidden; padding-bottom: 35px;}",
+		".html5-video-player {overflow: visible!important;}",
+			
 		///*The Player Fixes*/
 		".ytp-subtitles-player-content { bottom: 40px !important; }", //subtitles fix no longer bounces or hides on mouse hover
-		".caption-window.ytp-caption-window-bottom {	margin-bottom:30px!important }",
+		".caption-window.ytp-caption-window-bottom {	margin-bottom:30px!important; }",
 		".ytp-button.ytp-cards-button { top: 0% !important;}",		
-		":not(.watch-stage-mode) #movie_player { height: calc(100% + 33px)!important; }",
+		//"#movie_player:not(.ytp-big-mode) { padding-bottom: 33px!important; }",
 		"#watch7-content {transform: translateY(30px); }",
 		//".ytp-bezel {border-radius: 10px!important; }", //Changes the Circle play/pause flash to a rounded square
 			".ytp-bezel {display: none !important; }",
@@ -219,6 +223,7 @@ window.addEventListener('loadedmetadata', onLoadedmetadata, true);
 			".ytp-time-display {font-size: 90%; line-height: 29px !important;}",
 			".ytp-volume-slider-handle { }",
 			".ytp-volume-slider-handle::before { background: red; left: -64px }",
+			".ytp-big-mode .ytp-volume-slider-handle::before { background: red; left: -96px }",
 			".ytp-subtitles-button.ytp-button {display: inline !important;}",
 		
 		///*Progress Bar Minimizes to stretch across player*/
@@ -251,7 +256,7 @@ window.addEventListener('loadedmetadata', onLoadedmetadata, true);
 		".watch-wide .watch-playlist{ transform: translateY(84%)!important; margin-bottom: 30px; }", //Fixes wide+playlist/mix
 		"body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); }",
 			"body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }",
-		".watch-stage-mode #movie_player { height: calc(100% + 33px)!important; }",
+		
 			".watch-stage-mode #theater-background {background-color: transparent !important;}",
 		".watch-stage-mode #watch7-sidebar-discussion {margin-top: 12%;}",
 		
@@ -264,10 +269,10 @@ window.addEventListener('loadedmetadata', onLoadedmetadata, true);
 		".ytp-big-mode .ytp-chrome-top{ display: none !important;}",
 			
 		///*4:3 Fixes*/
-    ":not(.watch-stage-mode) .html5-main-video {max-height: 360px;}",
-    ".watch-stage-mode .html5-main-video {max-height: 480px;}",
-    ".ytp-fullscreen .html5-main-video{max-height: 1080px ;}",
-    ".ytp-big-mode .html5-video-container{max-height: 1080px !important; }",
+    //":not(.watch-stage-mode) .html5-main-video {max-height: 360px;}",
+    //".watch-stage-mode .html5-main-video {max-height: 480px;}",
+    //".ytp-fullscreen .html5-main-video{max-height: 1080px ;}",
+    //".ytp-big-mode .html5-video-container{max-height: 1080px !important; }",
 			
 		///*YTC Compatibility Fixes*/
 		".html5-main-video{top: 0px !important; }", //YT+ needs this fix now at 0px.
@@ -281,11 +286,11 @@ window.addEventListener('loadedmetadata', onLoadedmetadata, true);
 			"#upload-btn {float: left !important;}", 
 			
 		///*Embedded Fixes*/	
-		"div#player.full-frame{margin-top: 0% !important;}",	
-	  "div#player.full-frame{height: calc(100% + 0px) !important;}", //changes controls height but not container only embeds
-		"div#player.full-frame:hover .ytp-chrome-bottom, div#player.full-frame:hover .ytp-chrome-top { opacity: 1 !important;}", //shows control bar on hover of embed
-		"div#player.full-frame .ytp-chrome-bottom, div#player.full-frame .ytp-chrome-top { opacity: 0 !important; }", //hides control bar on embeds
-		"div#player.full-frame .ytp-chrome-bottom { border: 0px solid #000; border-width: 0px 12px 0px 12px!important; left:0 !important;}",
+		//"div#player.full-frame{margin-top: 0% !important;}",	
+	  //"div#player.full-frame{height: calc(100% + 0px) !important;}", //changes controls height but not container only embeds
+		//"div#player.full-frame:hover .ytp-chrome-bottom, div#player.full-frame:hover .ytp-chrome-top { opacity: 1 !important;}", //shows control bar on hover of embed
+		//"div#player.full-frame .ytp-chrome-bottom, div#player.full-frame .ytp-chrome-top { opacity: 0 !important; }", //hides control bar on embeds
+		//"div#player.full-frame .ytp-chrome-bottom { border: 0px solid #000; border-width: 0px 12px 0px 12px!important; left:0 !important;}",
 			
 		///*UI Fixes*/
 			".yt-dialog-bg {display: none!important;}", ///*White out diag box backgound for youtube reports*/

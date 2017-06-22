@@ -5,6 +5,7 @@
 // @author      snintendog-MechaLynx
 // @include     https://www.youtube.com/*
 // @exclude			https://www.youtube.com/feed/trending
+// @exclude			https://www.youtube.com/embed/*
 // @version     0.0.1
 // @grant       none
 // ==/UserScript==
@@ -37,6 +38,8 @@ function stopVideo()
     document.addEventListener("readystatechange", nukeSubs);
     document.addEventListener("load", nukeSubs, true);
 }());
+
+
 
 (function() {
 	var addWatchLater = true;
@@ -84,6 +87,86 @@ function f() {
 	
 f();
 document.body.addEventListener('DOMSubtreeModified', f, false);
+
+	
+	// Sets to Auto pause and start Buffering
+/*(function() {
+'use strict';
+
+function forcePause(video) {
+	function resetPause() {
+		video.pause();
+		video.currentTime = 0;
+	}
+	video.addEventListener('playing', resetPause, false);
+	var timeout = document.hasFocus() ? 500 : 1000;
+	window.setTimeout(function() {
+		video.removeEventListener('playing', resetPause, false);
+	}, timeout);
+}
+
+function forcePlay(video) {
+	function onClick() {
+		video.removeEventListener('click', onClick, false);
+		function onPause() {
+			video.play();
+		}
+		video.addEventListener('pause', onPause, false);
+		window.setTimeout(function() {
+			video.removeEventListener('pause', onPause, false);
+		}, 750);
+		onPause();
+	}
+	video.addEventListener('click', onClick, false);
+	function onPlay() {
+		video.removeEventListener('click', onClick, false);
+		video.removeEventListener('play', onPlay, false);
+	}
+	window.setTimeout(function() {
+		video.addEventListener('play', onPlay, false);
+	}, 250);
+}
+
+var MOVIE_PLAYER = '#movie_player';
+var YTP_TIME_LIVE = '.ytp-time-live,.ytp-time-liveonly,.ytp-time-live-dvr,.ytp-live-badge';
+var YTP_BUTTON_PAUSE = '.ytp-button-pause';
+var YTP_PLAY_BUTTON = '.ytp-play-button';
+
+function onLoadedmetadata(event) {
+	var video = event.target;
+	var movie_player = document.querySelector(MOVIE_PLAYER);
+	if(!movie_player) {
+		video.pause();
+		forcePause(video);
+		forcePlay(video);
+		return;
+	}
+	if(movie_player.querySelector(YTP_TIME_LIVE) &&
+		movie_player.querySelector(YTP_TIME_LIVE).getAttribute('disabled') !== 'true')
+		return;
+	function onPlaying() {
+		if(location.href.indexOf('list=') != -1)
+			return;
+		if(movie_player.pauseVideo) {
+			movie_player.pauseVideo();
+			if(movie_player.seekTo && location.href.indexOf('t=') == -1)
+				movie_player.seekTo(0);
+		}
+		else {
+			var ytp_button = movie_player.querySelector(YTP_BUTTON_PAUSE) || movie_player.querySelector(YTP_PLAY_BUTTON);
+			if(ytp_button && ytp_button.click)
+				ytp_button.click();
+		}
+	}
+	video.addEventListener('playing', onPlaying, false);
+	window.setTimeout(function() {
+		video.removeEventListener('playing', onPlaying, false);
+	}, 1000);
+}
+window.addEventListener('loadedmetadata', onLoadedmetadata, true);
+
+})();*/
+
 	
 	//the css: 
 	var css = document.createElement('style');
@@ -103,13 +186,24 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		//".html5-video-player div { transition-property: none !important; animation: none !important; }",//Animations on Player dissabled
 		".videowall-still-image { transform: none !important; }",
 		".html5-endscreen * { transition-property: none !important; animation: none !important; }",
-		"#player-api:hover .annotation.iv-branding { bottom: 5% !important;}", //move the channel brand annotation visible on hover
-    ".annotation.iv-branding {bottom: -30px !important;}", //hides the channel brand behind the controls
+		"#player-api:hover .annotation.iv-branding { transform: rotateY(0deg) !important; bottom: 5% !important;}", //move the channel brand annotation visible on hover
+    ".annotation.iv-branding {transform: rotateY(90deg) !important; transition: transform .5s; bottom: 5% !important;}", //hides the channel brand behind the controls
     ".ytp-player-content.ytp-iv-player-content{ bottom: 30px;}", //fixes the bounceing channel brand
     "#player-api:hover .ytp-button.ytp-cards-button {opacity: 1!important;}", //allow the icard icon to appear on hover
     ".ytp-button.ytp-cards-button { opacity: 0 !important; top: 0% !important;}", //fixes position and hides when not hovering
-			".ytp-ce-element{transform: translateY(-14%)!important;}",
+		".ytp-ce-element{transform: translateY(-14%)!important;}",
+		".ytp-iv-drawer-open .iv-drawer {height: 92% !important; }",
 			
+		///*Text card bar at top*/
+		".ytp-cards-button-icon-shopping,.ytp-cards-teaser{opacity: 0!important;}",
+		".ytp-cards-button-icon-shopping:hover,.ytp-cards-teaser:hover{opacity: 1!important;}",
+			
+		
+		///*End cards fix*/
+		".html5-endscreen.ytp-endscreen-paginate{ left: 0px !important; right: 0px !important; bottom: 32px !important; }",	
+		".html5-endscreen{background:black none repeat scroll 0 0!important;}",
+		".ytp-big-mode .ytp-player-content {top: 0px!important; bottom: 0px!important;}",
+		".ytp-autohide .ytp-player-content:not(.html5-endscreen), .ytp-hide-info-bar .ytp-player-content {top: 0px!important;bottom: 33px!important;}",	
 			
 		///*Control Style*/
 		"#movie_player:not(.ytp-fullscreen) .ytp-chrome-bottom { border: 0px solid #000; border-width: 1px 12px 0px 12px!important; left:0 !important;}",
@@ -120,12 +214,18 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 			"#movie_player:not(.ytp-fullscreen) .ytp-chrome-controls {padding-left: 0; padding-right: 0; margin-left: -12px; margin-right: -12px; }",
 		//".ytp-progress-bar-container { width: 96% !important; left: 2% !important; }", //Shrinks the progress bar to fix the offset bug
 			".ytp-watch-later-icon {height: 26px !important; width 36px !important;}",
-		".ytp-watch-later-button.ytp-button{ padding: 2px !important; float: left !important;}", //cleans up the watch later restore button to match the rest of the buttons sizes/corrects position
+		".ytp-watch-later-button.ytp-button{ padding: 2px !important; float: left !important; opacity: 1 !important;}", //cleans up the watch later restore button to match the rest of the buttons sizes/corrects position
 		".ytp-tooltip-image-enabled ,.ytp-tooltip.ytp-bottom{ bottom: 35px!important; top: auto!important;}",//the watchlater popoup	
 			".ytp-time-display {font-size: 90%; line-height: 29px !important;}",
 			".ytp-volume-slider-handle { }",
 			".ytp-volume-slider-handle::before { background: red; left: -64px }",
 			".ytp-subtitles-button.ytp-button {display: inline !important;}",
+		
+		///*Progress Bar Minimizes to stretch across player*/
+		"#movie_player:not(.ytp-fullscreen) .ytp-progress-bar-container:not(:hover) .ytp-progress-list{width: calc(100% + 24px); transition: width,margin-left .25s;}",	
+		"#movie_player:not(.ytp-fullscreen) .ytp-progress-list{margin-left: -12px;}",
+		"#movie_player:not(.ytp-fullscreen) .ytp-progress-bar-container:hover .ytp-progress-list{margin-left: 0px!important; width: 100% !important; transition: width,margin-left .25s;}",	
+
 			
 		///*Related Panel Style*/
 		".exp-wn-font-14 .related-list-item span.title{font-size: 13px}",
@@ -133,35 +233,47 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		".exp-wn-big-thumbs-v3 .related-list-item .content-wrapper{margin-left: 120px;}",
 		".exp-wn-big-thumbs-v3 .related-list-item .content-link{min-height: 60px}",
 		"div.watch-sidebar-body{margin: 0px;}",
+			".related-list-item .thumb-wrapper, .yt-uix-simple-thumb-related > img, .video-list-item .ux-thumb-wrap, .video-list-item .yt-pl-thumb {height: 70px !important; width: 110px !important;}",
+			".related-list-item .content-wrapper{margin-left: 120px !important; height: 70px !important; }",
+			".video-list .video-list-item .title {font-size: 13px !important; }",
+			".related-list-item .content-link {min-height: 70px !important;}",
+			".related-item-dismissable .title{ margin-right: 0px !important;}",
+			"#watch7-sidebar .watch-sidebar-section{ margin: 0 0 5px 5px !important;}",
+			".yt-pl-thumb .formatted-video-count-label { margin:0 0em !important; width: 90% !important; }",
+			".yt-pl-thumb .formatted-video-count-label b, .yt-pl-icon{ font-size: 14px!important; line-height: 10px!important; float: left!important}",
+			" {}",
 			
-			
+  	///*Search page style*/
+    "#results .yt-lockup-tile {padding: 5px 5px!important;}",
+    ".exp-search-big-thumbs #results .yt-lockup-tile .yt-lockup-thumbnail, .exp-search-big-thumbs #results .yt-lockup-tile .yt-thumb-simple img{max-height: 110px!important; max-width: 190px!important; min-width: 10px!important; min-height: 50px!important; }",
 		///*Theater Mode Fix*/
 		".watch-stage-mode #theater-background { bottom: -34px!important; left: 0px!important; position: absolute!important; background-color: #f1f1f1!important; height: 0px!important; width: 100%!important; }",
 		".watch-wide .watch-playlist{ transform: translateY(84%)!important; margin-bottom: 30px; }", //Fixes wide+playlist/mix
 		"body:not(.ytwp-window-player) .watch-stage-mode #watch7-sidebar-contents{ transform: translateY(48px); }",
 			"body:not(.ytwp-window-player) .watch-stage-mode #watch7-content { transform: translateY(48px); }",
-		".watch-stage-mode #movie_player { height: calc(100% + 31px)!important; }",
+		".watch-stage-mode #movie_player { height: calc(100% + 33px)!important; }",
 			".watch-stage-mode #theater-background {background-color: transparent !important;}",
 		".watch-stage-mode #watch7-sidebar-discussion {margin-top: 12%;}",
 		
 		
 		///*Fullscreen Fix*/
 		".ytp-big-mode video { height: calc(100% + 33px)!important; }",
-		".ytp-fullscreen .html5-video-container { height: 93%!important; }",
+		".ytp-fullscreen .html5-video-container { height: 92%!important; }",
 		".ytp-big-mode .ytp-settings-button.ytp-hd-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-4k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-5k-quality-badge::after,.ytp-big-mode .ytp-settings-button.ytp-8k-quality-badge::after{ content:'HD'!important; height: 20% ; width: 28% ; font-size: 50%; line-height: 50%; }",
 		".ytp-big-mode .ytp-subtitles-button.ytp-button::after{ top: 70%; }",
 		".ytp-big-mode .ytp-chrome-top{ display: none !important;}",
 			
 		///*4:3 Fixes*/
-		".html5-video-container{max-height: 360px !important; margin-top: 17px}",
-    ".watch-stage-mode .html5-video-container{max-height: 480px !important; margin-top: 17px}",
-    ".ytp-big-mode .html5-video-container{max-height: 1080px !important; margin-top: 17px}",
+    ":not(.watch-stage-mode) .html5-main-video {max-height: 360px;}",
+    ".watch-stage-mode .html5-main-video {max-height: 480px;}",
+    ".ytp-fullscreen .html5-main-video{max-height: 1080px ;}",
+    ".ytp-big-mode .html5-video-container{max-height: 1080px !important; }",
 			
 		///*YTC Compatibility Fixes*/
-		/*".html5-video-content{top: 0% !important; }", //-2% with YTCenter dev >V 531 on now fixed*/
-			".video-stream{margin-top: -34px !important;}", //Issue with YT+ needs -17px or -34px
-			".ytp-thumbnail-overlay{ margin-top: -17px !important; }", //-2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
-		".ytp-fullscreen .html5-video-container { margin-top: 34px !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
+		".html5-main-video{top: 0px !important; }", //YT+ needs this fix now at 0px.
+		//".video-stream{margin-top: -17px !important;}", //Issue with YT+ needs -17px or -34px
+			".ytp-thumbnail-overlay-image{background-size: 100% ; }", ".ytp-thumbnail-overlay {height:92% !important; }", //issue with YT+ needs -17px and possibly scaling. -2% with YTCenter dev >V 531 on 0% without unknown cause bug does not affect fullscreen but fix does
+		//".ytp-fullscreen .html5-video-container { margin-top: 17px !important; }", //Counters YTC fix in fullscreen. Wonders why I didn't think of this simple fix.
 			".guide-pinned.show-guide .guide-pinning-enabled #P-container{padding-left: 0px !important;}",
 			///*YT+ Compatiblity Fixes*/
 		/*"#movie_player:not(.ended-mode) .html5-video-container video{Height: calc(100% - 30px) !important;}",*/
@@ -176,6 +288,7 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		"div#player.full-frame .ytp-chrome-bottom { border: 0px solid #000; border-width: 0px 12px 0px 12px!important; left:0 !important;}",
 			
 		///*UI Fixes*/
+			".yt-dialog-bg {display: none!important;}", ///*White out diag box backgound for youtube reports*/
 			".ytp-iv-video-content{top: 0px !important;}",
 		"#masthead-positioner {position:relative!important;top:0!important;}", //Static Header Fix
 		"#masthead-positioner-height-offset{display:none!important;}", //Static Header Fix
@@ -190,7 +303,8 @@ document.body.addEventListener('DOMSubtreeModified', f, false);
 		".guide-pinned .guide-pinning-enabled #appbar-guide-menu{postion: absolute;}",
 		//"#guide-subscriptions-section {overflow-y: hidden; overflow-x: hidden; max-height: 50px;}",
 		//"#guide-channels {height: 530px;}",
-			///*Like/Unlike Button colors*/
+			
+		///*Like/Unlike Button colors*/
     ///*Like button*/
 			//".like-button-renderer-like-button-unclicked::before, .like-button-renderer-like-button-unclicked::after {}",
 			".like-button-renderer-like-button-unclicked:hover::before, .like-button-renderer-like-button-unclicked:hover::after, .like-button-renderer-like-button-clicked:hover::before, .like-button-renderer-like-button-clicked:hover::after, .like-button-renderer-like-button.yt-uix-button:active::before, .like-button-renderer-like-button.yt-uix-button.yt-uix-button-toggled::before {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAA%2FklEQVQ4jd3TIUsEYRDG8T8ajBY%2FhKD9bJ7RdmVmd4MfwXQYBfuBGCzPrMEmnMVkFUwWrTYNCtpNXlnL3SF3ewvrvckHpr3zG16GgX8bC25cnCfBXPRNVBa8LQUd3rLmwcBEZaLy4PPPmAW7Jp4n2Bi8ag%2BJdReXvyETlYtRdsF2Kywr2XHxWodZSdbYnJd085LuZGoW7LsYzWLTCl4suLaSo1x0TipWZr82fQxgwdlCrL7eU4NPSUEXx0nBQmwmA108zm15SbCfDgy%2BC7GRDHQxnMMAXPRc9HLRgfGVBAML7k18NYB7tWBTbMhqEWxZcODBqQV3Jj5MPLTG2uYHwfFWWxOdg3AAAAAASUVORK5CYII%3D);}",
